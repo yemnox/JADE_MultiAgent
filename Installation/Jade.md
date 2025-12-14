@@ -92,7 +92,7 @@ export GDK_BACKEND=x11
 
 # Lancement de JADE avec GUI
 cd ~/jade/jade/src/examples
-java -cp ~/jade/jade/lib/jade.jar:. jade.Boot -gui
+java -cp ~/jade/jade/lib/jade.jar:. jade.Boot -gui -host 10.1.1.10 -port 1099 #Using the TAP0 Interface Configuration
 ```
 
 ### 4.2 Lancement avec un Agent
