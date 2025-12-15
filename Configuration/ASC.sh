@@ -13,3 +13,8 @@ python3 -m http.server 8080
 # Run CentralServerAgent on ASC server
 cd ~/jade
 java -cp lib/jade.jar:agents jade.Boot -gui -host 10.1.1.10 -port 1099 ASC:CentralServerAgent
+
+#When DataBase.sql is ready, run the following command to create the database and tables
+java -cp "lib/jade.jar:lib/sqlite-jdbc-3.44.1.0.jar:lib/slf4j-api-1.7.36.jar:lib/slf4j-simple-1.7.36.jar:agents" \
+     jade.Boot -gui -host 10.1.1.10 -port 1099 \
+     ASC:CentralServerAgent
