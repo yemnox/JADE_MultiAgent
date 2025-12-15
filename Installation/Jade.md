@@ -13,7 +13,7 @@
 
 ### 2.1 Téléchargement et Extraction
 ```bash
-# Télécharger JADE depuis https://jade.tilab.com/download/jade/
+# Télécharger JADE depuis https://jade.tilab.com/download/
 mkdir -p ~/jade
 cd ~/jade
 # Extraire l'archive téléchargée
@@ -23,7 +23,7 @@ unzip jade-bin-*.zip  # ou tar -xzf jade-bin-*.tar.gz
 ### 2.2 Vérification de l'Installation
 ```bash
 # Vérifier la présence du fichier JAR principal
-ls ~/jade/jade/lib/jade.jar
+ls ~/jade/lib/jade.jar
 ```
 
 ### 2.3 Compilation des Exemples
@@ -32,7 +32,7 @@ ls ~/jade/jade/lib/jade.jar
 **Solution :** Exclure les exemples nécessitant JESS lors de la compilation.
 
 ```bash
-cd ~/jade/jade/src/examples
+cd ~/jade/src/examples
 
 # Créer une liste de fichiers Java en excluant les dépendances JESS
 find . -name "*.java" \
@@ -41,7 +41,7 @@ find . -name "*.java" \
   > sources.txt
 
 # Compiler les exemples compatibles
-javac -cp ~/jade/jade/lib/jade.jar:. @sources.txt
+javac -cp ~/jade/lib/jade.jar:. @sources.txt
 ```
 
 ## 3. Problèmes Rencontrés et Solutions
@@ -91,21 +91,21 @@ export DISPLAY=:0
 export GDK_BACKEND=x11
 
 # Lancement de JADE avec GUI
-cd ~/jade/jade/src/examples
-java -cp ~/jade/jade/lib/jade.jar:. jade.Boot -gui -host 10.1.1.10 -port 1099 #Using the TAP0 Interface Configuration
+cd ~/jade/src/examples
+java -cp ~/jade/lib/jade.jar:. jade.Boot -gui -host 10.1.1.10 -port 1099 #Using the TAP0 Interface Configuration
 ```
 
 ### 4.2 Lancement avec un Agent
 ```bash
 # Lancement de JADE avec un agent spécifique (exemple : ThanksAgent)
-java -cp ~/jade/jade/lib/jade.jar:. jade.Boot -gui \
+java -cp ~/jade/lib/jade.jar:. jade.Boot -gui \
   -agents "thanks:examples.thanksAgent.ThanksAgent"
 ```
 
 ### 4.3 Lancement sans Interface Graphique
 ```bash
 # Mode console uniquement
-java -cp ~/jade/jade/lib/jade.jar:. jade.Boot \
+java -cp ~/jade/lib/jade.jar:. jade.Boot \
   -agents "thanks:examples.thanksAgent.ThanksAgent"
 ```
 
@@ -150,14 +150,14 @@ java -cp <classpath> jade.Boot [options] [-agents <agent-list>]
 ### Exemples de Commandes
 ```bash
 # GUI seule
-java -cp ~/jade/jade/lib/jade.jar jade.Boot -gui
+java -cp ~/jade/lib/jade.jar jade.Boot -gui
 
 # Plusieurs agents
-java -cp ~/jade/jade/lib/jade.jar:. jade.Boot -gui \
+java -cp ~/jade/lib/jade.jar:. jade.Boot -gui \
   -agents "agent1:package.Class1;agent2:package.Class2"
 
 # Sans GUI
-java -cp ~/jade/jade/lib/jade.jar:. jade.Boot \
+java -cp ~/jade/lib/jade.jar:. jade.Boot \
   -agents "myagent:package.MyAgent"
 ```
 
@@ -171,7 +171,7 @@ echo 'export GDK_BACKEND=x11' >> ~/.bashrc
 echo 'export DISPLAY=:0' >> ~/.bashrc
 
 # Créer un alias pour JADE
-echo 'alias jade-gui="cd ~/jade/jade/src/examples && java -cp ~/jade/jade/lib/jade.jar:. jade.Boot -gui"' >> ~/.bashrc
+echo 'alias jade-gui="cd ~/jade/src/examples && java -cp ~/jade/lib/jade.jar:. jade.Boot -gui"' >> ~/.bashrc
 
 # Recharger la configuration
 source ~/.bashrc
@@ -191,5 +191,5 @@ Une fois ces étapes complétées, JADE fonctionne correctement avec son interfa
 
 - Site officiel JADE : https://jade.tilab.com/
 - Documentation : https://jade.tilab.com/documentation/
-- Téléchargements : https://jade.tilab.com/download/jade/
+- Téléchargements : https://jade.tilab.com/download/
 - Version utilisée : JADE 4.6.0 (révision 6869 du 30-11-2022)

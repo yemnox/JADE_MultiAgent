@@ -10,15 +10,6 @@ cd ~/jade-deploy
 python3 -m http.server 8080
 # Server now running on http://10.1.1.10:8080
 
-
-# On AL nodes (10.1.1.[1..5])
-# Install Java (OpenJDK)
-apt-get install -y openjdk-11-jre-headless
-
-# Verify installation
-java -version
-
-# Download files from ASC HTTP server
-wget http://10.1.1.10:8080/jade.jar
-wget http://10.1.1.10:8080/CentralServerAgent.class
-wget http://10.1.1.10:8080/LocalAgent.class
+# Run CentralServerAgent on ASC server
+cd ~/jade
+java -cp lib/jade.jar:agents jade.Boot -gui -host 10.1.1.10 -port 1099 ASC:CentralServerAgent

@@ -6,7 +6,7 @@ ifconfig
 #2. Link the container to The Rest of the Network
 
 # Inside each Docker container
-ip addr add 10.1.1.2/24 dev eth1  # Change IP for each node 10.1.1.[1..5]
+ip addr add 10.1.1.1/24 dev eth1  # Change IP for each node 10.1.1.[1..5]
 ip link set eth1 up
 
 # Test connectivity
