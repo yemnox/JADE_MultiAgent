@@ -52,7 +52,8 @@ public class CentralServerAgent extends Agent {
                 // Decide on action
                 if (content.contains("CRITICAL") || content.contains("95")) {
                     System.out.println("[ASC ACTION] Severity HIGH - Dispatching audit agent to " + sender);
-                    // TODO: Send Mobile Audit Agent
+                    // TODO: Send Mobile Audit Agent => Done
+                    deployAuditAgent(sender);
                 } else {
                     System.out.println("[ASC ACTION] Severity MEDIUM - Logged for monitoring");
                 }
@@ -78,5 +79,30 @@ public class CentralServerAgent extends Agent {
             System.out.println(alert);
         }
         System.out.println("═══════════════════════════════════════\n");
+    }
+    private void deployAuditAgent(String targetNode) {
+        try {
+            System.out.println("\n[ASC] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+            System.out.println("[ASC] 🚨 CRITICAL alert threshold exceeded");
+            System.out.println("[ASC] 🔍 Deploying Mobile Audit Agent...");
+            System.out.println("[ASC] 🎯 Target: " + targetNode);
+            System.out.println("[ASC] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
+            
+            // Create Mobile Audit Agent
+            jade.wrapper.AgentController amaController = 
+                getContainerController().createNewAgent(
+                    "AMA-" + targetNode + "-" + System.currentTimeMillis(),
+                    "MobileAuditAgent",
+                    new Object[]{targetNode}
+                );
+            
+            amaController.start();
+            
+            System.out.println("[ASC] ✓ Mobile Audit Agent deployed successfully\n");
+            
+        } catch (Exception e) {
+            System.err.println("[ASC] ✗ Failed to deploy Mobile Audit Agent");
+            System.err.println("[ASC] Error: " + e.getMessage());
+        }
     }
 }
