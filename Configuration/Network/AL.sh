@@ -12,8 +12,6 @@ ip link set eth1 up
 # Test connectivity
 ping 10.1.1.10  # Ping host
 
-
-
 #3. To make the changes persistent:
 nano /etc/network/interfaces
 # Add the following lines at the end of the file

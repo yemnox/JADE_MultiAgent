@@ -18,3 +18,8 @@ java -cp lib/jade.jar:agents jade.Boot -gui -host 10.1.1.10 -port 1099 ASC:Centr
 java -cp "lib/jade.jar:lib/sqlite-jdbc-3.44.1.0.jar:lib/slf4j-api-1.7.36.jar:lib/slf4j-simple-1.7.36.jar:agents" \
      jade.Boot -gui -host 10.1.1.10 -port 1099 \
      ASC:CentralServerAgent
+
+#Delete Keys: Incase the Containers restart
+ssh-keygen -f '/home/yemnox/.ssh/known_hosts' -R '10.1.1.1'
+ssh-keygen -f '/home/yemnox/.ssh/known_hosts' -R '10.1.1.2'
+ssh-keygen -f '/home/yemnox/.ssh/known_hosts' -R '10.1.1.3'
