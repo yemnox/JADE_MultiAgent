@@ -12,6 +12,8 @@ ip link set eth1 up
 # Test connectivity
 ping 10.1.1.10  # Ping host
 
+
+
 #3. To make the changes persistent:
 nano /etc/network/interfaces
 # Add the following lines at the end of the file
@@ -26,5 +28,5 @@ iface eth0 inet dhcp
 # eth1 for Static IP (Internal Network connection to your router)
 auto eth1
 iface eth1 inet static
-    address 10.1.1.2 # Change IP for each node 10.1.1.[1..5]
+    address 10.1.1.1 # Change IP for each node 10.1.1.[1..5]
     netmask 255.255.255.0
